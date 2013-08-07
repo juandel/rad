@@ -1,0 +1,20 @@
+.row-fluid
+	.info
+		.controls
+			- if @work.previous
+				= link_to('< Prev.', {:action =>'show', :id => @work.previous}, :class => 'prev') 
+				%p - 
+			- if @work.next
+				= link_to('Next. >', {:action =>'show', :id => @work.next}, :class => 'next')
+.row
+	%ul.thumbnails
+		-if @cover
+			%li.span
+				= image_tag(@cover.file.url(:large))
+		-else
+			%h3 NO COVER FOR THIS PROJECT.
+	%p.detail #{@work.name} - #{@work.detail}
+	%ul.thumbnails
+		- @work.images.each do |image|
+			%li.span
+				= image_tag(image.file.url(:small))

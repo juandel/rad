@@ -1,0 +1,19 @@
+.QOverlay {
+	background-color: #ffffff;
+	z-index: 9999;
+	/*overflow:hidden;*/
+  position: relative;
+  top: 150px;
+}
+
+.QLoader {
+	background-color: #545454;
+	height: 27px;
+	overflow:hidden;
+	
+}
+.preload {
+width:1000px;
+height:518px;
+overflow:hidden;
+}

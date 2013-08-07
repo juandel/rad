@@ -1,0 +1,33 @@
+!!!
+%html
+	%head
+		%title Rad
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags
+	%body(data-spy="scroll" data-target="#navbar"){:id => "#{controller_name}", :class => "#{controller_name} #{controller_name}_#{action_name}"}
+		#navbar.fixed-nav
+			.row-fluid.loader-container
+				#loader
+				#simbols
+			= link_to '', root_path, class: 'brand'
+			%ul.nav
+				%li.sub-section.works
+					= link_to('work', works_path, class: 'work')
+					%ul.nav.work-category
+						%li
+							= link_to 'covers', covers_works_path
+						%li 
+							= link_to 'poster', poster_works_path
+						%li
+							= link_to 'identity', identity_works_path
+						%li
+							= link_to 'random', random_works_path
+				%li.pages_info
+					= link_to('info', info_path, class: 'info')
+				%li.pages_contact
+					= link_to('contact', contact_path, class: 'contact')
+		.no-margin.loader-section{:class => "#{action_name}"}
+			= yield
+	%script(type='text/javascript')
+		QueryLoader.init();

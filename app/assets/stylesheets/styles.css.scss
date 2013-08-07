@@ -1,0 +1,209 @@
+/*
+LAYOUT
+*/
+.row-fluid{
+  margin: 0;
+}
+.row-fluid .span12{width: 100%;}
+.no-margin{
+	position: relative;
+	padding-top: 10em;
+}
+.no-margin [class*="span"] {
+    margin-left: 0;
+}
+
+/*
+FONT
+*/
+
+@font-face {	
+	font: {
+		family: 'DINPro-Light';
+		weight: 'normal';
+		style: 'normal';
+	}
+		src: asset-url('DINPro-Light.eot', font);
+		src: asset-url('DINPro-Light.eot', font) format('embedded-opentype'),
+				 asset-url('DINPro-Light.woff', font) format('woff'), 
+				 asset-url('DINPro-Light.ttf', font) format('truetype'), 
+				 asset-url('DINPro-Light.svg', font) format('svg');
+}
+@font-face {	
+	font: {
+		family: 'DINPro-Regular';
+		weight: 'normal';
+		style: 'normal';
+	}
+		src: asset-url('DINPro-Regular.eot', font);
+		src: asset-url('DINPro-Regular.eot', font) format('embedded-opentype'),
+				 asset-url('DINPro-Regular.woff', font) format('woff'), 
+				 asset-url('DINPro-Regular.ttf', font) format('truetype'), 
+				 asset-url('DINPro-Regular.svg', font) format('svg');
+}
+@font-face {	
+	font: {
+		family: 'DINPro-Bold';
+		weight: 'normal';
+		style: 'normal';
+	}
+		src: asset-url('DINPro-Bold.eot', font);
+		src: asset-url('DINPro-Bold.eot', font) format('embedded-opentype'),
+				 asset-url('DINPro-Bold.woff', font) format('woff'), 
+				 asset-url('DINPro-Bold.ttf', font) format('truetype'), 
+				 asset-url('DINPro-Bold.svg', font) format('svg');
+}
+h6, p, a{
+	color: #545454;
+}
+h6{
+	font-family: 'DINPro-Bold';
+}
+p{
+	font-family: 'DINPro-Regular';
+}
+a{
+	font-family: 'DINPro-Regular';
+	cursor: pointer;
+}
+p+a{
+	position: relative;
+	top: -0.625em;
+}
+strong{
+	font-family: 'DINPro-Bold';
+}
+
+/*
+APPLICATION
+*/
+.fixed-nav{
+	position: fixed;
+	background: white;
+	display: block;
+	width: 100%;
+	z-index: 1000;
+	.loader-container{
+		margin-bottom: 15px;	
+		border-bottom: 1px solid #545454;
+		height: 27px;
+		#loader{
+			width: 85%;
+			height: 27px;
+			overflow: hidden;
+			display: inline-block;
+			/*background: #666;*/
+		}
+		#simbols{
+			width: 12%;
+			height: 27px;
+			display: inline-block;
+			float: right;
+			background: url(sprites.png);
+			background-position: 0 -50px;
+		}
+	}
+	.brand{
+		background: url(sprites.png);
+		width: 45px;
+		height: 47px;
+		margin: 0 10px 0 45px;
+		display: inline-block;
+	}
+
+	.nav{
+		display: inline-block;
+		position: relative;
+		width: 20%;
+		li{
+			a{
+			font-family: 'DINPro-Light';
+			text-transform: uppercase;
+			color: #BBB;
+			}
+			a:hover{
+				background: none;
+				color: #DDD;
+			}
+		}
+		li.active{
+			>a{
+			color: #000;
+			font-family: 'DINPro-Bold';
+			}
+		}
+		li.info, li.contact{
+			width: 20%;
+		}
+		.pages_info, .pages_contact{
+			width: 20%;
+		}
+	}
+	.sub-section{
+		display: inline-block;
+		.work-category{
+			width: 100%;
+			height: 2em;
+			position: absolute;
+			top: 0;
+			left: 18%;
+			display: none;
+			li{
+				display: inline-block;
+				a{
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+
+@mixin select($section){
+	body.#{$section}{
+		#navbar li.#{$section} > a{
+			color: #111;
+		}
+	}
+}
+
+@each $section in(works, pages_info, pages_contact){
+	@include select($section);
+}
+
+#work{
+	.span2{
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		img{
+			width: 100%;
+		}
+		.over{
+			background: url(over.png);
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.over_cross{
+			display: none;
+			position: absolute;
+			top: 100%;
+			width: 80%;
+			height: 80%;
+			margin: 10%;
+		}
+	}	
+}
+#info, #contact{
+	min-height: 500px;
+	margin: 5em 0 0 2.813em;
+	.span4{
+		padding-right: 10em;
+		h6:first-child{
+			margin-top: 0;
+		}
+	}
+}

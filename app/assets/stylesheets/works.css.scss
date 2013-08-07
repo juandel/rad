@@ -1,0 +1,49 @@
+// Place all the styles related to the Works controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#works{
+  .index{
+    h5{
+      color: #AA21FF;
+    }
+  }
+  .covers{
+    h5{
+      color: #4523AA;
+    }
+  }
+  .poster{
+    h5{
+      color: #FF00FF;
+    }
+  }
+  .show{
+    .info{
+      position: fixed;
+      z-index: 2000;
+      top: 6.45em;
+      left: 13.571em;
+      .controls{
+        margin: 0 1em;
+        display: inline;
+      }
+      p, a{
+        display: inline;
+        top: 0;
+        color: #C0C0C0;
+      }
+      p.detail{
+        color: #545454;
+      }
+    }
+    .thumbnails{
+      margin-left: 9em;
+      .span{
+        img{
+          max-width: none;
+        }
+      }
+    }
+  }
+}
